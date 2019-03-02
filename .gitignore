@@ -13,6 +13,7 @@ node_modules/
 app/bower/
 .tmp/
 .idea/
+.vscode/
 
 # OS or Editor folders
 .DS_Store
