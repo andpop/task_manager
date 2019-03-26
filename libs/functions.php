@@ -1,6 +1,13 @@
 <?php
 require_once 'connection-params.php';
 
+function dump($var)
+{
+    echo '<pre>';
+    print_r($var);
+    echo '</pre>';
+}
+
 function dbConnect()
 {
     $connectionString = 'mysql:host=' . CONNECT_DB['host'] . ';dbname=' . CONNECT_DB['database'].';';
