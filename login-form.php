@@ -17,7 +17,7 @@
 
   <body>
     <div class="form-wrapper text-center">
-      <form class="form-signin">
+      <form class="form-signin" action="login.php" method="post">
         <img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
         <label for="inputEmail" class="sr-only">Email</label>

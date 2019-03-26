@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/libs/app-config.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/libs/functions.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/libs/register-functions.php');
 
 $username = $_POST['username'];
