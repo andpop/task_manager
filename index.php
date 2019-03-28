@@ -1,11 +1,16 @@
 <?php
 session_start();
+require_once($_SERVER['DOCUMENT_ROOT'].'/libs/functions.php');
 
-//TODO Если в куках установлен токен, то редирект на авторизацию по токену (login-token.php)
+//Если в куках установлен токен, то редирект на авторизацию по токену (login-token.php)
+//dump($_SESSION);
+//exit;
+if (isset($_COOKIE['auth_token']) && !isset($_SESSION['user_id'])) {
+    redirect('/login-token.php');
+}
 
-if(!isset($_SESSION['user_id'])) {
-    header('Location: /login-form.php');
-    exit;
+if (!isset($_SESSION['user_id'])) {
+    redirect('/login-form.php');
 }
 ?>
 

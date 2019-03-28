@@ -8,6 +8,12 @@ function dump($var)
     echo '</pre>';
 }
 
+function redirect($link)
+{
+    header("Location: $link");
+    exit;
+}
+
 function dbConnect()
 {
     $connectionString = 'mysql:host=' . CONNECT_DB['host'] . ';dbname=' . CONNECT_DB['database'].';';
@@ -20,7 +26,7 @@ function dbConnect()
 }
 
 // Валидация входных данных (проверка на пустые значения)
-function isEmptyFieldInPost()
+function isEmptyFieldInPost() : bool
 {
     foreach ($_POST as $postItem) {
         if (empty(trim($postItem))) {
@@ -28,4 +34,15 @@ function isEmptyFieldInPost()
         }
     }
     return false;
+}
+
+function getNewToken() : string
+{
+    return bin2hex(random_bytes(64));
+}
+
+function saveTokenToCookie($token)
+{
+    $expirationTime = time()+60*60*24*10;
+    setcookie('auth_token', $token, $expirationTime, "", "", false, true);
 }

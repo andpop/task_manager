@@ -31,13 +31,14 @@ session_start();
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['email'] = $user['email'];
 
-//TODO Реализация режима "Запомнить меня"
-// Если выбран чек-бокс remember-me
-// Сгенерировать токен
-
-// Записать токен в куку (http only, срок жизни 10 дней)
-// setcookie
+// Реализация режима "Запомнить меня"
+if (isset($_POST['remember-me'])) {
+    $token = getNewToken();
+    saveTokenToCookie($token);
+    saveUserTokenToDB($token, $user['id']);
+} else {
+//    TODO Удалить токен из сессии и из БД
+}
 
 //переадресовываем на главную
-header('Location: /index.php');
-exit;
+redirect('/index.php');

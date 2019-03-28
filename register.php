@@ -29,4 +29,4 @@ if (isUserEmailExists($email)) {
 saveNewUser($username, $email, $password);
 
 // Переадресация на форму для логина
-header('Location: /login-form.php');
+redirect('/login-form.php');
