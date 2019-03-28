@@ -37,7 +37,9 @@ if (isset($_POST['remember-me'])) {
     saveTokenToCookie($token);
     saveUserTokenToDB($token, $user['id']);
 } else {
-//    TODO Удалить токен из сессии и из БД
+    clearUserToken($user['id']);
+    // Удаляем куку auth_token
+    setcookie('auth_token');
 }
 
 //переадресовываем на главную

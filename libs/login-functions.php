@@ -52,3 +52,14 @@ function getUserByToken($token)
     $user = $statement->fetch();
     return $user;
 }
+
+function clearUserToken($userId)
+{
+    global $pdo;
+
+    $sql = 'UPDATE `users` SET `token`="" WHERE `id`=:userId';
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'userId' => $userId
+    ]);
+}

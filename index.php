@@ -2,9 +2,8 @@
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'].'/libs/functions.php');
 
-//Если в куках установлен токен, то редирект на авторизацию по токену (login-token.php)
-//dump($_SESSION);
-//exit;
+//Если в куках установлен токен и пользователь еще не авторизовался,
+// то редирект на авторизацию по токену (login-token.php)
 if (isset($_COOKIE['auth_token']) && !isset($_SESSION['user_id'])) {
     redirect('/login-token.php');
 }

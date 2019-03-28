@@ -22,11 +22,9 @@ $_SESSION['user_id'] = $user['id'];
 $_SESSION['email'] = $user['email'];
 
 //Обновляем токен в базе и в куках
-//echo $token . '<br>';
 $token = getNewToken();
 saveTokenToCookie($token);
 saveUserTokenToDB($token, $user['id']);
-//echo $token . '<br>';
 
 //переадресовываем на главную
 redirect('/index.php');
